@@ -2,3 +2,174 @@ body {
     background-color: #192f5e;
     font-family: sans-serif;
 }
+
+.inner-container{
+    max-width: 75rem;
+    margin: auto;
+    padding: 0 1rem;
+}
+
+.flex-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Step 1: Style the showing state of the menu, starting with the mobile view. Style the layout and link for how they will look when visible */
+ 
+header {
+    background-color: #fff;
+    padding: 2rem 0;
+}
+
+.menu a {
+    color: #3f3f3f;
+    text-decoration: none;
+    display: block;
+}
+
+.menu a:hover,
+.menu a:active {
+    background-color: gainsboro;
+    border-radius: 4px;
+}
+
+.menu li {
+    line-height: 40px;
+    text-align: center;
+}
+
+button {
+    border: none;
+    background-color: #fff;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+svg {
+    fill: #3f3f3f;
+}
+
+/* Step 2: Now hide the menu. Once it's hidden this will be the default stage on load. FYI - the display property cannot be transitioned, instead, hide the nav by making it's max-height*/
+
+header nav {
+    /* display: none; */
+
+    /* style this so that it will overlap the main content */
+    /* this element will be absolute to the viewport */
+    /* add in left and top values left: 0 top (height of the header) */
+    position: absolute;
+    background-color: #fff;
+    width: 100vw;
+    left: 0;
+    top: 110px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s ease-in-out;
+    /* padding-bottom: 1rem;  */
+}
+
+/* Step 3: Create a spcial class to show the menu. This class name will only exist in the CSS for now. Next the JS will add this class to the hidden element for us (nav) */
+
+.show-nav {
+    /* display: block; */
+    max-height: 200px;
+}
+@media screen and (min-width:700px) {
+    .inner-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .toggle-btn {
+        display: none;
+    }
+
+    header nav {
+        max-height: 200px;
+        overflow: visible;
+        position: static;
+        width: unset;
+        /* padding: unset; */
+        /* justify-content: space-between; */
+    }
+
+    ul.menu {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .menu a{
+        padding: 0 0.75rem;
+    }
+
+}
+
+/* *************************************************************************************************** */
+
+body {
+    background-color: #192f5e;
+    font-family: sans-serif;
+}
+
+.inner-container{
+    max-width: 66.25rem;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 3.125rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
+}
+
+section p {
+    font-size: 1.75rem;
+    color: #d5e294;
+    border-bottom: 2px solid #d5e294;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+section {
+    padding: 3.125rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.gallery {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+section span {
+    background-color: #87a6ab;
+    color: #fff;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    /* position the span over the image by taking it out of the document flow */
+    position: absolute;
+    /* the top, right, bottom, or left values to position it */
+    right: -10px;
+    top: -20px;
+}
+
+.thumbnail {
+    position: relative;
+}
+
+@media screen and (min-width: 1060px) {
+    .gallery {
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+}
+
+
+
